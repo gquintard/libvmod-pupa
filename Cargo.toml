@@ -1,0 +1,11 @@
+[package]
+name = "vmr-example"
+version = "0.1.0"
+authors = ["First Last <your@email.com>"]
+
+[dependencies]
+libc = "*"
+
+[lib]
+name = "example"
+crate-type = ["staticlib"]

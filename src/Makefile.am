@@ -3,10 +3,13 @@ AM_CPPFLAGS = @VMOD_INCLUDES@ -Wall -Werror
 vmoddir = @VMOD_DIR@
 vmod_LTLIBRARIES = libvmod_example.la
 
-libvmod_example_la_LDFLAGS = -module -export-dynamic -avoid-version -shared
+libvmod_example_la_LDFLAGS = -Wc,../target/debug/libexample.a -module -export-dynamic -avoid-version -shared
 
-libvmod_example_la_SOURCES = \
-	vmod_example.c
+../target/debug/libexample.a: example.rs
+	cargo build
+
+libvmod_example_la_LIBADD = \
+	../target/debug/libexample.a
 
 nodist_libvmod_example_la_SOURCES = \
 	vcc_if.c \
