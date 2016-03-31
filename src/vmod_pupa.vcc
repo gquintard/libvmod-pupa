@@ -15,9 +15,7 @@ For more info:
 * https://github.com/gquintard/libvmod-pupa
 * https://www.rust-lang.org/
 
-It will create a small hashmap, using string as keys and integer as values. The
-size of the hashmap is limited to 20 items, if more are introduced, the oldest
-entries will be evicted
+It will create a small hashmap, using string as keys and integer as values.
 
 $Event init_function
 $Function INT push(PRIV_VCL, STRING)
