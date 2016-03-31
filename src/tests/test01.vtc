@@ -9,12 +9,12 @@ varnish v1 -vcl+backend {
 	import pupa from "${vmod_topbuild}/src/.libs/libvmod_pupa.so";
 
 	sub vcl_deliver {
-		set resp.http.a = example.push("a");
-		set resp.http.a = example.push("a");
-		set resp.http.a = example.push("a");
-		set resp.http.b = example.push("b");
-		set resp.http.b = example.push("b");
-		set resp.http.c = example.push("c");
+		set resp.http.a = pupa.push("a");
+		set resp.http.a = pupa.push("a");
+		set resp.http.a = pupa.push("a");
+		set resp.http.b = pupa.push("b");
+		set resp.http.b = pupa.push("b");
+		set resp.http.c = pupa.push("c");
 	}
 } -start
 

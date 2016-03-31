@@ -1,0 +1,28 @@
+varnishtest "Test pupa vmod"
+
+server s1 {
+       rxreq
+       txresp
+} -start
+
+varnish v1 -vcl+backend {
+	import pupa from "${vmod_topbuild}/src/.libs/libvmod_pupa.so";
+
+	sub vcl_deliver {
+		set resp.http.push = pupa.push("a");
+		set resp.http.peek = pupa.peek("a");
+		set resp.http.push = pupa.push("a");
+		set resp.http.push = pupa.push("a");
+		set resp.http.pull = pupa.pull("a");
+	}
+} -start
+
+client c1 {
+	txreq -url "/"
+	rxresp
+	expect resp.http.push == 3
+	expect resp.http.pull == 2
+	expect resp.http.peek == 1
+}
+
+client c1 -run
