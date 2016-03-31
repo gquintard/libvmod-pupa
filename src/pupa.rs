@@ -63,10 +63,6 @@ pub enum VclEvent {
 	Discard,
 }
 
-struct RustyCtx {
-	hash:	Mutex<HashMap<String, c_int>>,
-}
-
 pub struct vmod_priv {                                                                                                                                                                                                 
 	prv	: *const Mutex<HashMap<String, c_int>>,
 	len	: c_int,

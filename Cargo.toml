@@ -1,5 +1,5 @@
 [package]
-name = "vmr-example"
+name = "vmr-pupa"
 version = "0.1.0"
 authors = ["First Last <your@email.com>"]
 
@@ -7,5 +7,5 @@ authors = ["First Last <your@email.com>"]
 libc = "*"
 
 [lib]
-name = "example"
+name = "pupa"
 crate-type = ["staticlib"]

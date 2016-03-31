@@ -18,9 +18,10 @@ import example;
 DESCRIPTION
 ===========
 
-Example Varnish vmod demonstrating how to write an out-of-tree Varnish vmod.
+Example Varnish vmod demonstrating how to write an out-of-tree Varnish vmod,
+IN RUST!
 
-Implements the traditional Hello World as a vmod.
+Stores the number of occurences of strings you push/pull into it.
 
 FUNCTIONS
 =========

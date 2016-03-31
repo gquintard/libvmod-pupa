@@ -1,4 +1,4 @@
-varnishtest "Test example vmod"
+varnishtest "Test pupa vmod"
 
 server s1 {
        rxreq
@@ -6,7 +6,7 @@ server s1 {
 } -start
 
 varnish v1 -vcl+backend {
-	import example from "${vmod_topbuild}/src/.libs/libvmod_example.so";
+	import pupa from "${vmod_topbuild}/src/.libs/libvmod_pupa.so";
 
 	sub vcl_deliver {
 		set resp.http.a = example.push("a");

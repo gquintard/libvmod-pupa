@@ -1,0 +1,34 @@
+#
+# Copyright YOU (c) 1900.
+#
+# (vmodtool requires this format.)
+#
+
+$Module pupa 3 Pupa VMOD
+
+DESCRIPTION
+===========
+
+pupa is a toy vmod show of you can write a vmod using the Rust language.
+
+For more info:
+* https://github.com/gquintard/libvmod-pupa
+* https://www.rust-lang.org/
+
+It will create a small hashmap, using string as keys and integer as values. The
+size of the hashmap is limited to 20 items, if more are introduced, the oldest
+entries will be evicted
+
+$Event init_function
+$Function INT push(PRIV_VCL, STRING)
+
+Create a entry for STRING if none exists yet, and increment it by one.
+
+$Function INT peek(PRIV_VCL, STRING)
+
+Return the value associated to STRING, or 0 if the entry doesn't exist.
+
+$Function INT pull(PRIV_VCL, STRING)
+
+Decrease by one the value associated with STRING, if that value is more than
+zero.
