@@ -1,10 +1,10 @@
 Summary: Example VMOD for Varnish
-Name: vmod-example
+Name: vmod-pupa
 Version: 0.1
 Release: 1%{?dist}
 License: BSD
 Group: System Environment/Daemons
-Source0: libvmod-example.tar.gz
+Source0: libvmod-pupa.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 Requires: varnish >= 4.0.2
 BuildRequires: make
@@ -16,7 +16,7 @@ BuildRequires: varnish-libs-devel >= 4.0.2
 Example VMOD
 
 %prep
-%setup -n libvmod-example-trunk
+%setup -n libvmod-pupa-trunk
 
 %build
 %configure --prefix=/usr/

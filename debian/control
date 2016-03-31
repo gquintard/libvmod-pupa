@@ -1,4 +1,4 @@
-Source: libvmod-example
+Source: libvmod-pupa
 Section: web
 Priority: extra
 Maintainer: Varnish Software <support@varnish-software.com>
@@ -9,9 +9,9 @@ Build-Depends: debhelper (>= 7),
  varnish (>= 4.0.2),
  libvarnishapi-dev (>= 4.0.2)
 Standards-Version: 3.8.1
-Vcs-Git: git://github.com/varnish/libvmod-example.git
+Vcs-Git: git://github.com/varnish/libvmod-pupa.git
 
-Package: libvmod-example
+Package: libvmod-pupa
 Architecture: any
 Depends: varnish (>= 4.0.2), ${shlibs:Depends}, ${misc:Depends}, ${Varnish:ABI}
 Description: Example vmod for Varnish

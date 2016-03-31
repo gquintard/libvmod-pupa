@@ -1,9 +1,9 @@
 ============
-vmod_example
+vmod_pupa
 ============
 
 ----------------------
-Varnish Example Module
+Varnish Pupa Module
 ----------------------
 
 :Date: 2016-03-31
