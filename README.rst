@@ -6,14 +6,14 @@ vmod_example
 Varnish Example Module
 ----------------------
 
-:Date: 2015-03-03
+:Date: 2016-03-31
 :Version: 1.0
 :Manual section: 3
 
 SYNOPSIS
 ========
 
-import example;
+import pupa;
 
 DESCRIPTION
 ===========
@@ -26,21 +26,7 @@ Stores the number of occurences of strings you push/pull into it.
 FUNCTIONS
 =========
 
-hello
------
-
-Prototype
-        ::
-
-                hello(STRING S)
-Return value
-	STRING
-Description
-	Returns "Hello, " prepended to S
-Example
-        ::
-
-                set resp.http.hello = example.hello("World");
+Have a look at src/vmod_pupa.vcc. 
 
 INSTALLATION
 ============
@@ -87,18 +73,6 @@ vmod installation directory can be overridden by passing the
 Other files like man-pages and documentation are installed in the
 locations determined by ``configure``, which inherits its default
 ``--prefix`` setting from Varnish.
-
-USAGE EXAMPLE
-=============
-
-In your VCL you could then use this vmod along the following lines::
-
-        import example;
-
-        sub vcl_deliver {
-                # This sets resp.http.hello to "Hello, World"
-                set resp.http.hello = example.hello("World");
-        }
 
 COMMON PROBLEMS
 ===============
