@@ -1,16 +1,11 @@
 extern crate libc;
 use libc::c_int;
-use libc::c_uint;
 use libc::c_char;
 use libc::c_void;
-use libc::c_double;
 
-use std::io::prelude::*;
-use std::ptr;
 use std::ffi::CStr;
 use std::ffi::CString;
-use std::fs::File;
-use std::sync::{Arc, Mutex};
+use std::sync::Mutex;
 use std::boxed::Box;
 use std::collections::HashMap;
 use std::collections::hash_map::Entry::{Occupied, Vacant};
@@ -61,7 +56,7 @@ pub unsafe extern fn vmod_push(_	: *const c_void,
 				prv	: &vmod_priv,
 				input	: *const c_char) -> c_int {
 	
-	let mut hash = unsafe { &*prv.prv }.lock().unwrap();
+	let mut hash = (&*prv.prv).lock().unwrap();
 
 	let key = conv(input);
 
@@ -75,7 +70,7 @@ pub unsafe extern fn vmod_pull(_	: *const c_void,
 				prv	: &vmod_priv,
 				input	: *const c_char) -> c_int {
 
-	let mut hash = unsafe { &*prv.prv }.lock().unwrap();
+	let mut hash = (&*prv.prv).lock().unwrap();
 
 	let key = conv(input);
 
@@ -87,7 +82,7 @@ pub unsafe extern fn vmod_pull(_	: *const c_void,
 				*entry.get()
 			}
 		},
-		Vacant(entry) => 0
+		Vacant(_) => 0
 	}
 }
 
@@ -96,12 +91,12 @@ pub unsafe extern fn vmod_peek(_	: *const c_void,
 				prv	: &vmod_priv,
 				input	: *const c_char) -> c_int {
 
-	let mut hash = unsafe { &*prv.prv }.lock().unwrap();
+	let mut hash = (&*prv.prv).lock().unwrap();
 
 	let key = conv(input);
 
 	match hash.entry(key) {
 		Occupied(entry) => *entry.get(),
-		Vacant(entry) => 0
+		Vacant(_) => 0
 	}
 }
