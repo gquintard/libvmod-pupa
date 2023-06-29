@@ -16,7 +16,7 @@ BuildRequires: varnish-libs-devel >= 4.0.2
 Example VMOD
 
 %prep
-%setup -n libvmod-pupa-trunk
+%setup -n libvmod-pupa-master
 
 %build
 %configure --prefix=/usr/
