@@ -23,7 +23,7 @@ if ! git diff-index --quiet HEAD --; then
 	exit -2
 fi
 
-git mv src/vmod_pupa.c src/vmod_${NAME}.c
+git mv src/pupa.rs src/${NAME}.rs
 git mv src/vmod_pupa.vcc src/vmod_${NAME}.vcc
 git mv vmod-pupa.spec vmod-${NAME}.spec
 
