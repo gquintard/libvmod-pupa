@@ -1,3 +1,5 @@
+**Note:** this project is dead. It served as illustration for this [blog post](https://info.varnish-software.com/blog/writing-vmods-in-rust) but we now have [varnish-rs](https://info.varnish-software.com/blog/writing-vmods-in-rust) which is better, easier and more up-to-date, so have a look at that instead.
+
 ============
 vmod_pupa
 ============
